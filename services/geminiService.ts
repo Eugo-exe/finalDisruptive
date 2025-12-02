@@ -2,7 +2,7 @@ import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 import { Message, ProvinceData } from "../types";
 
 // Initialize the API client
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: "AIzaSyAV3clJQykPh23Da0Z2-jAsYcrv0_sMenc"});
 
 // System instruction for the Thai persona
 const SYSTEM_INSTRUCTION = `
