@@ -1,0 +1,8 @@
+{
+  "name": "ARAI - Smart Tourism",
+  "description": "A futuristic WebAR tourism prototype featuring image tracking and an AI Guide named Nong Arai.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

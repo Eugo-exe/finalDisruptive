@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>ARAI - น้องน้ำฝนพาเที่ยว</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;600;700&family=Noto+Serif+Thai:wght@300;400;600&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              thai: {
+                gold: '#D4AF37',       /* ทอง */
+                goldlight: '#F9E79F',  /* ทองสว่าง */
+                crimson: '#8D0B12',    /* แดงชาด */
+                midnight: '#050A18',   /* น้ำเงินราตรี */
+                silk: '#F4F1EA',       /* สีนวล */
+                copper: '#B87333',     /* ทองแดง */
+                rain: '#4CA1AF',       /* สีฟ้าน้ำฝน */
+                tea: '#E06B22',        /* สีชาไทย */
+                lime: '#9BCC32',       /* สีมะนาว */
+              }
+            },
+            fontFamily: {
+              sans: ['Sarabun', 'sans-serif'],
+              serif: ['Noto Serif Thai', 'serif'], 
+              display: ['Chakra Petch', 'sans-serif'],
+            },
+            backgroundImage: {
+              // Updated pattern to be more distinctively Thai (Prajam Yam motif hint)
+              'thai-pattern': "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23D4AF37\" fill-opacity=\"0.05\" fill-rule=\"evenodd\"%3E%3Cpath d=\"M0 40L40 0H20L0 20M40 40V20L20 40\"/%3E%3Cpath d=\"M20 20L0 0v20L20 0\"/%3E%3C/g%3E%3C/svg%3E')",
+              'thai-flower': "url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"%23D4AF37\" stroke-width=\"2\"%3E%3Cpath d=\"M50 0 C20 0 0 20 0 50 C0 80 20 100 50 100 C80 100 100 80 100 50 C100 20 80 0 50 0 Z M50 10 C70 10 90 30 90 50 C90 70 70 90 50 90 C30 90 10 70 10 50 C10 30 30 10 50 10 Z\" opacity=\"0.1\"/%3E%3C/svg%3E')",
+              'gradient-royal': 'linear-gradient(135deg, #050A18 0%, #0a1128 100%)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'spin-slow': 'spin 15s linear infinite',
+              'shimmer': 'shimmer 2s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-6px)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-200% 0' },
+                '100%': { backgroundPosition: '200% 0' }
+              }
+            },
+            screens: {
+              'xs': '375px',
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- A-Frame and MindAR -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+      }
+    }
+    </script>
+    <style>
+      /* Mobile optimization specifics */
+      body {
+        overscroll-behavior-y: none; /* Prevent pull-to-refresh on mobile */
+      }
+      .safe-pb {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+      }
+      .safe-top {
+        padding-top: max(1rem, env(safe-area-inset-top));
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(212, 175, 55, 0.05);
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(212, 175, 55, 0.3);
+        border-radius: 10px;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-thai-midnight text-thai-silk overflow-hidden font-sans selection:bg-thai-gold selection:text-thai-midnight">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
